@@ -55,7 +55,7 @@ CREATE TABLE usuarios (
   Direccion varchar(60) NOT NULL,
   Ciudad varchar(30) NOT NULL,
   Nivel_Usu int(2) NOT NULL,
-  Contraseña int(4) NOT NULL,
+  Contrasena int(4) NOT NULL,
   PRIMARY KEY (Documento)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -107,3 +107,4 @@ CREATE TABLE rentas (
 INSERT INTO rentas VALUES (1,'2020-10-11','2020-10-28',85936541,1,4),(2,'2020-10-15','2020-10-30',85936541,3,3),
 (3,'2020-11-02','2020-11-15',96541238,2,1),(4,'2020-11-03','2020-11-14',99332565,3,2);
 select * from rentas;
+select * from usuarios where Documento='85936541' and Contrasena=9917;
