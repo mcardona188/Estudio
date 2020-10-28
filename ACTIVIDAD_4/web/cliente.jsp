@@ -1,9 +1,4 @@
-<%-- 
-    Document   : cliente
-    Created on : 28-oct-2020, 8:18:43
-    Author     : Miguel Angel
---%>
-
+<%@page import="actividad4.clases.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +7,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Cliente!</h1>
+        <%
+            HttpSession sesion = request.getSession();
+            Usuario usuario = (Usuario)sesion.getAttribute("usuario");
+            
+        %>    
+            
+        <h1> Cliente: <%=usuario.getNombre() + " " + usuario.getApellidos() %></h1>
     </body>
 </html>

@@ -15,9 +15,9 @@ import java.sql.Statement;
  *
  * @author Miguel Angel
  */
-public class Login {
+public class Catalogo {
 
-    public static Usuario validar(String documento, int contrasena) throws SQLException {
+    public static Tienda findTienda(String codigo) throws SQLException {
         Connection cnx = null;
         Statement sta = null;
         ResultSet rs = null;
@@ -55,7 +55,7 @@ public class Login {
     }
     
     
-    public static void main(String[] asd) throws SQLException {
-        System.err.println(Login.validar("85936541", 9917));
+    public static void main(String[] asd) {
+        System.err.println(Catalogo.validar("85936541", 9917));
     }
 }
