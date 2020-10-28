@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 26-oct-2020, 17:59:36
+    Document   : error
+    Created on : 28-oct-2020, 7:20:50
     Author     : Miguel Angel
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hubo un error!</h1>
     </body>
 </html>

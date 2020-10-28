@@ -1,4 +1,5 @@
-﻿create database videotienda;
+﻿drop database videotienda;
+create database videotienda;
 use videotienda;
 
 #
@@ -15,7 +16,7 @@ PRIMARY KEY (codigo)
 # Data for table "tiendas"
 #
 INSERT INTO tiendas VALUES ('0001', "La Mota"),('0002',"Estadio");
-delete from tiendas;
+
 select * from tiendas;
 #
 # Structure for table "catalogo"
@@ -50,7 +51,7 @@ CREATE TABLE usuarios (
   Documento int(11) NOT NULL,
   Nombre varchar(30) NOT NULL,
   Apellidos varchar(30) NOT NULL,
-  Tel_fijo int(7) NOT NULL,
+  Tel_fijo varchar(10) NOT NULL,
   Tel_celular varchar(10) NOT NULL,
   Direccion varchar(60) NOT NULL,
   Ciudad varchar(30) NOT NULL,
@@ -58,6 +59,8 @@ CREATE TABLE usuarios (
   Contrasena int(4) NOT NULL,
   PRIMARY KEY (Documento)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ALTER TABLE usuarios MODIFY Tel_fijo varchar(10) NOT NULL;
 
 #
 # Data for table "empleados"
@@ -71,9 +74,9 @@ INSERT INTO usuarios VALUES (85936541,'Jorge Luis','Pérez Coa',2984055,'3003197
 #
 DROP TABLE IF EXISTS metodos_pago;
 CREATE TABLE metodos_pago (
-id int(10) NOT NULL,
-nombre varchar (10),
-PRIMARY KEY (id)
+	id int(10) NOT NULL,
+	nombre varchar (10),
+	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 #
