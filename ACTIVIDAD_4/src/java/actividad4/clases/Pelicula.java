@@ -9,7 +9,7 @@ package actividad4.clases;
  *
  * @author Miguel Angel
  */
-class Pelicula {
+public class Pelicula {
 
     private Integer idPelicula;
     private String nombre;

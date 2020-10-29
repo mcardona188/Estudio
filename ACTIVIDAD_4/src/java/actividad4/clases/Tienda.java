@@ -9,7 +9,7 @@ package actividad4.clases;
  *
  * @author Miguel Angel
  */
-class Tienda {
+public class Tienda {
     private String codigo;
     private String direccion;
 

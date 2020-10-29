@@ -143,6 +143,45 @@ public class Catalogo {
 
         return pelicula;
     }
+    
+    public static List<Pelicula> findPeliculasDisponibles() throws SQLException {
+        Connection cnx = null;
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        List<Pelicula> disponibles = new ArrayList();
+
+        try {
+            cnx = Conexion.getConnection();
+            String query = "select * from catalogo where Estado = 'Disponible'";
+            p = cnx.prepareStatement(query);
+            rs = p.executeQuery();
+
+            while (rs.next()) {
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("ID_pelicula"));
+                pelicula.setNombre(rs.getString("Nombre"));
+                pelicula.setGenero(rs.getString("Genero"));
+                pelicula.setAnio(rs.getInt("anio"));
+                pelicula.setClasificacion(rs.getString("Clasificacion"));
+                pelicula.setProtagonistas(rs.getString("Protagonistas"));
+                pelicula.setDirector(rs.getString("Director"));
+                pelicula.setEstado(rs.getString("Estado"));
+
+                Tienda tienda = findTienda(rs.getString("tienda"));
+                pelicula.setTienda(tienda);
+                
+                disponibles.add(pelicula);
+
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            p.close();
+            cnx.close();
+        }
+
+        return disponibles;
+    }
 
     public static Renta findRenta(int id) throws SQLException {
         Connection cnx = null;
