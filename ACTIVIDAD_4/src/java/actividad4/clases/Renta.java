@@ -67,4 +67,9 @@ public class Renta {
     public void setMetodoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
     }
+
+    @Override
+    public String toString() {
+        return "Renta{" + "ID_Tiket=" + ID_Tiket + ", fechaPrestamo=" + fechaPrestamo + ", fechaRetorno=" + fechaRetorno + ", Cliente=" + Cliente + ", pelicula=" + pelicula + ", metodoPago=" + metodoPago + '}';
+    }
 }

@@ -30,4 +30,9 @@ class MetodoPago {
         this.nombre = nombre;
     }
 
+    @Override
+    public String toString() {
+        return "MetodoPago{" + "id=" + id + ", nombre=" + nombre + '}';
+    }
+
 }

@@ -18,6 +18,7 @@ PRIMARY KEY (codigo)
 INSERT INTO tiendas VALUES ('0001', "La Mota"),('0002',"Estadio");
 
 select * from tiendas;
+select * from tiendas where codigo = '0001';
 #
 # Structure for table "catalogo"
 #
@@ -26,7 +27,7 @@ CREATE TABLE catalogo (
   ID_pelicula int(6) NOT NULL,
   Nombre varchar(60) NOT NULL,
   Genero varchar(30) NOT NULL,
-  Año int(4) NOT NULL,
+  anio int(4) NOT NULL,
   Clasificacion char(7) NOT NULL,
   Protagonistas varchar(30) NOT NULL,
   Director varchar(30) NOT NULL,
@@ -35,14 +36,14 @@ CREATE TABLE catalogo (
   PRIMARY KEY (ID_pelicula),
 	CONSTRAINT catalogo_ibfk_2 FOREIGN KEY (tienda) REFERENCES tiendas (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+-- ALTER TABLE catalogo CHANGE COLUMN Año anio int(4) NOT NULL;
 #
 # Data for table "catalogo"
 #
 INSERT INTO catalogo VALUES (1,'Rey León','Infantil, Drama',2019,'Todos','Chiwetel Ejiofor, John Oliver','Jon Favreau','No disponible','0001'),
 (2,'Titanic','Drama',1997,'+6años','Leonardo DiCaprio, Kate Winsle','James Cameron','Disponible','0002'),
 (3,'Avengers: Los Vengadores','Acción, ficción',2012,'+4años','Robert Downey Jr., Chris Evans','Joss Whedon','Disponible','0001');
-
+select * from catalogo where ID_pelicula = 1;
 #
 # Structure for table "usuarios"
 #
@@ -69,6 +70,8 @@ INSERT INTO usuarios VALUES (85936541,'Jorge Luis','Pérez Coa',2984055,'3003197
 (96541238,'Luis Carlos','Ríos Pérez',2596209,'3004201250','CL 54 # 56-70','Itagüí',2,4358),
 (99332565,'Mary Luz','Mesa Suárez',5683591,'3116585987','CL 31 # 43-12','Medellín',2,1234);
 
+select * from usuarios where Documento = '85936541' and Contrasena=9917;
+select * from usuarios where Documento = '85936541';
 #
 # Structure for table "metodos_pago"
 #
@@ -83,7 +86,7 @@ CREATE TABLE metodos_pago (
 # Data for table "metodos_pago"
 #
 INSERT INTO metodos_pago VALUES (1,"Efectivo"),(2,"Crédito"),(3,"Débito"),(4,"PSE");
-
+select * from metodos_pago where id = 1;
 #
 # Structure for table "rentas"
 #
@@ -109,5 +112,10 @@ CREATE TABLE rentas (
 #
 INSERT INTO rentas VALUES (1,'2020-10-11','2020-10-28',85936541,1,4),(2,'2020-10-15','2020-10-30',85936541,3,3),
 (3,'2020-11-02','2020-11-15',96541238,2,1),(4,'2020-11-03','2020-11-14',99332565,3,2);
+
+INSERT INTO rentas VALUES (5,'2020-10-03','2020-10-05',99332565,2,1), (6,'2020-10-13','2020-10-16',99332565,1,4);
+
 select * from rentas;
-select * from usuarios where Documento='85936541' and Contrasena=9917;
+select * from rentas where ID_Tiket = 1;
+
+select * from rentas where Cliente = 99332565;

@@ -19,7 +19,7 @@ public class Login {
 
     public static Usuario validar(String documento, int contrasena) throws SQLException {
         Connection cnx = null;
-        Statement sta = null;
+        PreparedStatement p = null;
         ResultSet rs = null;
         Usuario usuario = new Usuario();
         usuario.setNivelUsu(0);
@@ -27,7 +27,7 @@ public class Login {
         try {
             cnx = Conexion.getConnection();
             String query = "select * from usuarios where Documento=? and Contrasena=?";
-            PreparedStatement p = cnx.prepareStatement(query);
+            p = cnx.prepareStatement(query);
             p.setString(1, documento);
             p.setInt(2, contrasena);
             rs = p.executeQuery();
@@ -47,7 +47,7 @@ public class Login {
             usuario.setNivelUsu(3);
             System.out.println(e);
         } finally {
-            sta.close();
+            p.close();
             cnx.close();
         }
 
