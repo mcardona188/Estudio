@@ -196,6 +196,8 @@ public class Catalogo {
             rs = p.executeQuery();
 
             while (rs.next()) {
+                
+                
                 Pelicula pelicula = new Pelicula();
                 pelicula.setIdPelicula(rs.getInt("ID_pelicula"));
                 pelicula.setNombre(rs.getString("Nombre"));
