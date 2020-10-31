@@ -182,6 +182,45 @@ public class Catalogo {
 
         return disponibles;
     }
+    
+    public static List<Pelicula> findPeliculasAlquiladas() throws SQLException {
+        Connection cnx = null;
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        List<Pelicula> disponibles = new ArrayList();
+
+        try {
+            cnx = Conexion.getConnection();
+            String query = "select * from catalogo where Estado = 'No disponible'";
+            p = cnx.prepareStatement(query);
+            rs = p.executeQuery();
+
+            while (rs.next()) {
+                Pelicula pelicula = new Pelicula();
+                pelicula.setIdPelicula(rs.getInt("ID_pelicula"));
+                pelicula.setNombre(rs.getString("Nombre"));
+                pelicula.setGenero(rs.getString("Genero"));
+                pelicula.setAnio(rs.getInt("anio"));
+                pelicula.setClasificacion(rs.getString("Clasificacion"));
+                pelicula.setProtagonistas(rs.getString("Protagonistas"));
+                pelicula.setDirector(rs.getString("Director"));
+                pelicula.setEstado(rs.getString("Estado"));
+
+                Tienda tienda = findTienda(rs.getString("tienda"));
+                pelicula.setTienda(tienda);
+                
+                disponibles.add(pelicula);
+
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            p.close();
+            cnx.close();
+        }
+
+        return disponibles;
+    }
 
     public static Renta findRenta(int id) throws SQLException {
         Connection cnx = null;
@@ -259,6 +298,41 @@ public class Catalogo {
 
         return rentas;
     }
+    
+    public static List<Usuario> findClientes() throws SQLException {
+        Connection cnx = null;
+        PreparedStatement p = null;
+        ResultSet rs = null;
+        List<Usuario> clientes = new ArrayList();
+
+        try {
+            cnx = Conexion.getConnection();
+            String query = "select * from usuarios where Nivel_Usu = 2";
+            p = cnx.prepareStatement(query);
+            rs = p.executeQuery();
+
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setDocumento(rs.getString("Documento"));
+                usuario.setNombre(rs.getString("Nombre"));
+                usuario.setApellidos(rs.getString("Apellidos"));
+                usuario.setTelFijo(rs.getString("Tel_fijo"));
+                usuario.setTelCelular(rs.getString("Tel_celular"));
+                usuario.setDireccion(rs.getString("Direccion"));
+                usuario.setCiudad(rs.getString("Ciudad"));
+                usuario.setNivelUsu(rs.getInt("Nivel_Usu"));
+                
+                clientes.add(usuario);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            p.close();
+            cnx.close();
+        }
+
+        return clientes;
+    }
 
     public static void main(String[] asd) throws SQLException {
         System.err.println(Catalogo.findTienda("0001"));
@@ -269,5 +343,7 @@ public class Catalogo {
         
         System.err.println("*******************");
         System.err.println(Catalogo.findRentas("99332565"));
+        System.err.println("*******************");
+        System.err.println(Catalogo.findClientes());
     }
 }

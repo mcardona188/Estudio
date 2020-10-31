@@ -18,15 +18,21 @@
         </form>
     </center>
     <%
-
+        HttpSession sesion = request.getSession();
+        if (sesion.getAttribute("mensaje") != null) {
+            %>
+            <center><h4 style="color: red"><%=sesion.getAttribute("mensaje")%></h4></center>
+            <%
+        }
         if (request.getParameter("btnIngresar") != null) {
             String documento = request.getParameter("txtUsuario");
             Integer contrasena = Integer.parseInt(request.getParameter("txtContra"));
             Usuario usuario = Login.validar(documento, contrasena);
 
-            HttpSession sesion = request.getSession();
+            
             switch (usuario.getNivelUsu()) {
                 case 0:
+                    sesion.setAttribute("mensaje", "Usuario o contraseña inválido");
                     response.sendRedirect("login.jsp");
                     break;
                 case 1:

@@ -43,7 +43,9 @@ CREATE TABLE catalogo (
 INSERT INTO catalogo VALUES (1,'Rey León','Infantil, Drama',2019,'Todos','Chiwetel Ejiofor, John Oliver','Jon Favreau','No disponible','0001'),
 (2,'Titanic','Drama',1997,'+6años','Leonardo DiCaprio, Kate Winsle','James Cameron','Disponible','0002'),
 (3,'Avengers: Los Vengadores','Acción, ficción',2012,'+4años','Robert Downey Jr., Chris Evans','Joss Whedon','Disponible','0001');
+
 select * from catalogo where ID_pelicula = 1;
+select * from catalogo where Estado = 'Disponible';
 #
 # Structure for table "usuarios"
 #
