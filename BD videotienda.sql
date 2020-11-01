@@ -42,7 +42,8 @@ CREATE TABLE catalogo (
 #
 INSERT INTO catalogo VALUES (1,'Rey León','Infantil, Drama',2019,'Todos','Chiwetel Ejiofor, John Oliver','Jon Favreau','No disponible','0001'),
 (2,'Titanic','Drama',1997,'+6años','Leonardo DiCaprio, Kate Winsle','James Cameron','Disponible','0002'),
-(3,'Avengers: Los Vengadores','Acción, ficción',2012,'+4años','Robert Downey Jr., Chris Evans','Joss Whedon','Disponible','0001');
+(3,'Avengers: Los Vengadores','Acción, ficción',2012,'+4años','Robert Downey Jr., Chris Evans','Joss Whedon','Disponible','0001'),
+(4,'Yo Daniel: I Daniel Blake','Drama, amistad',2016,'+13años','Dave Jons., Hayley Squires','Ken Loachn','Disponible','0002');
 
 select * from catalogo where ID_pelicula = 1;
 select * from catalogo where Estado = 'Disponible';
@@ -70,10 +71,14 @@ CREATE TABLE usuarios (
 #
 INSERT INTO usuarios VALUES (85936541,'Jorge Luis','Pérez Coa',2984055,'3003197250','CR 27 # 36D SUR-280(802)','Sabaneta',1,9917),
 (96541238,'Luis Carlos','Ríos Pérez',2596209,'3004201250','CL 54 # 56-70','Itagüí',2,4358),
-(99332565,'Mary Luz','Mesa Suárez',5683591,'3116585987','CL 31 # 43-12','Medellín',2,1234);
+(99332565,'Mary Luz','Mesa Suárez',5683591,'3116585987','CL 31 # 43-12','Medellín',2,1234),
+(32439724,'Elena','Sánchez Vargas',2556203,'3012459718','CR 51 # 46-13','Guarne',2,9724),
+(71640640,'Miguel Ángel','Cardona Gallego',3801864,'3103197291','CL 54 # 56-70','Medellín',1,0640);
 
-select * from usuarios where Documento = '85936541' and Contrasena=9917;
-select * from usuarios where Documento = '85936541';
+
+select * from usuarios where Documento = '32439724' and Contrasena=9917;
+select * from usuarios where Documento = '71640640';
+select * from usuarios where Nivel_Usu = 2;
 #
 # Structure for table "metodos_pago"
 #

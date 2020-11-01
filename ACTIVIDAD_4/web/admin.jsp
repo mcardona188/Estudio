@@ -34,7 +34,7 @@
                     List<Pelicula> disponibles = Catalogo.findPeliculasDisponibles();
                     List<Pelicula> alquiladas = Catalogo.findPeliculasAlquiladas();
                 %>    
-                <h1> Administrador: <%=administrador.getNombre() + " " + administrador.getApellidos()%></h1>
+                <h1> Nombre: <%=administrador.getNombre() + " " + administrador.getApellidos()%></h1>
 
                 <h2>Listado de Clientes</h2>
                 <table border="1">
