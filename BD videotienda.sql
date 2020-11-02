@@ -1,5 +1,4 @@
 ﻿# Creación BD
-use videotienda;
 drop database videotienda;
 create database videotienda;
 use videotienda;
@@ -12,7 +11,8 @@ Direccion varchar(60) NOT NULL,
 PRIMARY KEY (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO tiendas VALUES ('0001','La Mota'),('0002','Estadio'),('0003','Envigado');
+INSERT INTO tiendas VALUES  ('0001','La Mota'),('0002','Estadio'),
+												  	('0003','Envigado');
 
 #Tabla "catalogo"
 DROP TABLE IF EXISTS catalogo;
@@ -71,7 +71,8 @@ CREATE TABLE metodos_pago (
 	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO metodos_pago VALUES (1,"Efectivo"),(2,"Crédito"),(3,"Débito"),(4,"PSE");
+INSERT INTO metodos_pago VALUES (1,"Efectivo"),(2,"Crédito"),
+																(3,"Débito"),(4,"PSE");
 
 #Tabla "rentas"
 DROP TABLE IF EXISTS rentas;
