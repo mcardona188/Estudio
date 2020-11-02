@@ -1,0 +1,86 @@
+.centrarUno {
+    margin:auto;
+    width: 10%;
+    border: 7px;
+    padding: 100px;
+    text-align: center;
+}
+
+body {
+    background-color: lightblue;
+}
+
+input {
+    width: 90%;
+    max-width: 200px;
+    align-items: center;
+    background-color: #0f7373;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+input[type=submit] {
+    cursor: pointer;
+}
+
+select {
+    width: 20%;
+    padding: 4px 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: #EAEDED;
+}
+
+.bodyUno {
+    font-family: sansation;
+    background: url(img/Foncine6.jpg) no-repeat center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.bodyDos {
+    font-family: sansation;
+    background: url(img/Foncine2.jpg) no-repeat center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.colorBlando{
+    color: whitesmoke;
+}
+
+.contenedor {
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: whitesmoke;
+  opacity: 1; /* Firefox */
+  text-align: center;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: whitesmoke;
+  text-align: center;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: whitesmoke;
+  text-align: center;
+}
+
+td {
+    padding-left: 10px;
+    padding-right: 10px;
+}

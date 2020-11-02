@@ -7,7 +7,7 @@ package actividad4.clases;
 
 /**
  *
- * @author Miguel Angel
+ * @author Miguel Angel y Albert B.
  */
 public class Pelicula {
 

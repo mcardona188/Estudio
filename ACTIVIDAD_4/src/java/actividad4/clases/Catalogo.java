@@ -152,7 +152,7 @@ public class Catalogo {
 
         try {
             cnx = Conexion.getConnection();
-            String query = "select * from catalogo where Estado = 'Disponible'";
+            String query = "select * from catalogo where Estado = 'Disponible' Order by Nombre Asc";
             p = cnx.prepareStatement(query);
             rs = p.executeQuery();
 
@@ -191,7 +191,7 @@ public class Catalogo {
 
         try {
             cnx = Conexion.getConnection();
-            String query = "select * from catalogo where Estado = 'No disponible'";
+            String query = "select * from catalogo where Estado = 'No disponible' Order by Nombre Asc";
             p = cnx.prepareStatement(query);
             rs = p.executeQuery();
 
@@ -309,7 +309,7 @@ public class Catalogo {
 
         try {
             cnx = Conexion.getConnection();
-            String query = "select * from usuarios where Nivel_Usu = 2";
+            String query = "select * from usuarios where Nivel_Usu = 2 Order by Documento Asc";
             p = cnx.prepareStatement(query);
             rs = p.executeQuery();
 
